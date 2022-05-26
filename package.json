@@ -1,0 +1,26 @@
+{
+  "name": "code-village",
+  "version": "1.0.0",
+  "description": "A social networking website for coder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankit1595/code-village.git"
+  },
+  "keywords": [
+    "social"
+  ],
+  "author": "ankit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ankit1595/code-village/issues"
+  },
+  "homepage": "https://github.com/ankit1595/code-village#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
