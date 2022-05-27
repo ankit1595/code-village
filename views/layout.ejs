@@ -1,8 +1,16 @@
 <html>
   <head>
     <title><%= title%></title>
+    <link rel="stylesheet" href="/css/layout.css" />
+    <%- style %>
   </head>
   <body>
-    <%- include('_header'); -%> <%- body %> <%- include('_footer'); -%>
+    <%- include('_header'); -%>
+    <br />
+    <%- body %>
+    <br />
+    <%- include('_footer'); -%>
+    <br />
+    <%- script%>
   </body>
 </html>
