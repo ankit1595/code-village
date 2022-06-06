@@ -9,5 +9,7 @@ console.log("router loaded");
 router.get("/", homeController.home);
 router.use("/users", require("./users.js"));
 router.get("/contact", homeController.contact);
+router.get("/login", homeController.login);
+router.get("/signup", homeController.signup);
 
 module.exports = router;

@@ -9,3 +9,15 @@ module.exports.post = function (req, res) {
     title: "Users Post",
   });
 };
+
+module.exports.login = function (req, res) {
+  return res.render("login", {
+    title: "Login | CodeVillage",
+  });
+};
+
+module.exports.signup = function (req, res) {
+  return res.render("signup", {
+    title: "Sign Up | CodeVillage",
+  });
+};
