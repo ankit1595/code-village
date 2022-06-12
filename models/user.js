@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
   {
-    username: {
+    email: {
       type: String,
       required: true,
       unique: true,
@@ -22,5 +22,9 @@ const userSchema = new mongoose.Schema(
 );
 
 const User = mongoose.model("User", userSchema);
+
+// await User.collection.createIndex({ email: 1 }); // Index is not in schema
+// Will drop the 'age' index and create an index on `name`
+// User.syncIndexes();
 
 module.exports = User;
