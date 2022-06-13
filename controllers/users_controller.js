@@ -1,9 +1,28 @@
 const User = require("../models/user");
 
 module.exports.profile = function (req, res) {
-  return res.render("profile", {
-    title: "Users Profile",
-  });
+  console.log(req.cookies.user_id);
+  let tokenId = req.cookies.user_id;
+  if (tokenId) {
+    User.findById(tokenId, function (err, user) {
+      if (err) {
+        console.log("Error in finding user while getting user details", err);
+        return;
+      }
+
+      if (user) {
+        return res.render("profile", {
+          title: "Users Profile",
+          name: user.name,
+          email: user.email,
+        });
+      } else {
+        return res.redirect("/users/login");
+      }
+    });
+  } else {
+    return res.redirect("/users/login");
+  }
 };
 
 module.exports.post = function (req, res) {
@@ -62,12 +81,12 @@ module.exports.createSession = function (req, res) {
       //handle password doesn't match
       if (user.password != req.body.password) {
         return res.redirect("back");
-      } else {
-        return res.redirect("/users/profile");
       }
-    }
-    //handle user not found
-    else {
+      //handle session creation
+      res.cookie("user_id", user.id);
+      return res.redirect("/users/profile");
+    } else {
+      //handle user not found
       return res.redirect("back");
     }
   });
