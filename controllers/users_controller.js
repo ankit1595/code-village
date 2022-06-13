@@ -49,6 +49,26 @@ module.exports.create = function (req, res) {
   });
 };
 
-// module.exports.createSession = function (req, res) {
-//   //to do later
-// };
+module.exports.createSession = function (req, res) {
+  //steps for manual authentication
+  //find username/email id in the database
+  User.findOne({ email: req.body.email }, function (err, user) {
+    if (err) {
+      console.log("Error in finding user while signing in", err);
+      return;
+    }
+
+    if (user) {
+      //handle password doesn't match
+      if (user.password != req.body.password) {
+        return res.redirect("back");
+      } else {
+        return res.redirect("/users/profile");
+      }
+    }
+    //handle user not found
+    else {
+      return res.redirect("back");
+    }
+  });
+};
