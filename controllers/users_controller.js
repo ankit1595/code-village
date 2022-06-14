@@ -13,12 +13,18 @@ module.exports.post = function (req, res) {
 };
 
 module.exports.login = function (req, res) {
+  if (req.isAuthenticated()) {
+    return res.redirect("/users/profile");
+  }
   return res.render("login", {
     title: "Login | CodeVillage",
   });
 };
 
 module.exports.signup = function (req, res) {
+  if (req.isAuthenticated()) {
+    return res.redirect("/users/profile");
+  }
   return res.render("signup", {
     title: "Sign Up | CodeVillage",
   });
