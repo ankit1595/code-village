@@ -2,15 +2,13 @@
   <head>
     <title><%= title%></title>
     <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
     <%- style %>
   </head>
   <body>
     <%- include('_header'); -%>
-    <br />
-    <%- body %>
-    <br />
-    <%- include('_footer'); -%>
-    <br />
-    <%- script%>
+    <main id="layout-main"><%- body %></main>
+    <%- include('_footer'); -%> <%- script%>
   </body>
 </html>

@@ -1,19 +1,29 @@
-<header>Page Header</header>
+<header>
+  <nav>
+    <div class="mini-logo">
+      <p>
+        <a href="/"> CodeV </a>
+      </p>
+    </div>
 
-<ul>
-  <% if(locals.user) { %>
-  <li>
-    <a href="/users/profile"><%= user.name%></a>
-  </li>
-  <li>
-    <a href="/users/sign-out">Sign Out</a>
-  </li>
-  <%} else { %>
-  <li>
-    <a href="/users/login">Sign In</a>
-  </li>
-  <li>
-    <a href="/users/sign-up">Sign Up</a>
-  </li>
-  <%}%>
-</ul>
+    <div class="auth-links">
+      <ul>
+        <% if(locals.user) { %>
+        <li>
+          <a href="/users/profile"><%= user.name%></a>
+        </li>
+        <li>
+          <a href="/users/sign-out">Sign Out</a>
+        </li>
+        <%} else { %>
+        <li>
+          <a href="/users/login">Sign In</a>
+        </li>
+        <li>
+          <a href="/users/sign-up">Sign Up</a>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </nav>
+</header>

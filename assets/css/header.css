@@ -1,0 +1,29 @@
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  background: #2196f3;
+  box-shadow: 1px 1px 1px 1px lightgrey;
+}
+
+header nav .mini-logo p {
+  margin: 5px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+header nav .auth-links ul {
+  margin: 5% 5px;
+  display: flex;
+  list-style-type: none;
+}
+
+header nav .auth-links ul li {
+  margin-right: 15px;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+}

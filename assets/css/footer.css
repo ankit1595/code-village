@@ -1,0 +1,17 @@
+footer {
+  display: flex;
+  justify-content: flex-start;
+  background-color: gray;
+  color: white;
+  gap: 20px;
+  box-shadow: 1px 1px 1px 1px black;
+}
+
+footer .footer-nav ul {
+  list-style: none;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
