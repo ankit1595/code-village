@@ -8,8 +8,22 @@
       cols="30"
       rows="5"
       placeholder="What's on your mind?"
-    >
-    </textarea>
+    ></textarea>
     <input type="submit" value="Post" />
   </form>
+  <div id="posts-list-container">
+    <ul>
+      <% for(post of posts) {%>
+      <p>
+        <li>
+          <%=post.content %> <br />
+          <small>
+            <% if(post.user) {%> <%= post.user.name %> <%}else{%> anonymous
+            <%}%>
+          </small>
+        </li>
+        <%} %>
+      </p>
+    </ul>
+  </div>
 </section>

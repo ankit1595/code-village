@@ -6,12 +6,6 @@ module.exports.profile = function (req, res) {
   });
 };
 
-module.exports.post = function (req, res) {
-  return res.render("post", {
-    title: "Users Post",
-  });
-};
-
 module.exports.login = function (req, res) {
   if (req.isAuthenticated()) {
     return res.redirect("/users/profile");
