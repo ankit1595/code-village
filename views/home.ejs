@@ -18,9 +18,11 @@
   <div id="posts-list-container">
     <ul>
       <% for(post of posts) {%>
-      <p>
-        <li>
-          <%=post.content %> <br />
+      <li>
+        <p>
+          <% if (locals.user && (post.user.id == locals.user.id)) {%>
+          <a href="/posts/destroy/<%= post.id %>"> <strong>x</strong></a>
+          <%} %> <%=post.content %> <br />
           <small>
             <% if(post.user) {%> <%= post.user.name %> <%}else{%> anonymous
             <%}%>
@@ -30,8 +32,13 @@
           <h5>Comments</h5>
           <% if(locals.user) {%>
           <form action="/comments/create" method="post">
-            <input type="text" name="content" placeholder="Type comment here..." required>
-            <input type="hidden" name="post" value="<%= post._id%>">
+            <input
+              type="text"
+              name="content"
+              placeholder="Type comment here..."
+              required
+            />
+            <input type="hidden" name="post" value="<%= post._id%>" />
             <input type="submit" value="Add Comment" />
           </form>
           <%}%>
@@ -39,24 +46,21 @@
           <div class="post-comments-list">
             <ul class="post-comment-<%= post._id%>">
               <% for(comment of post.comments) {%>
-                <li>
-                  <p>
-                    <%= comment.content %>
-                    <br>
-                    <small>
-                      <%= comment.user.name %>
-                    </small>
-                  </p>
-                </li>
-                
+              <li>
+                <p>
+                  <%= comment.content %>
+                  <br />
+                  <small> <%= comment.user.name %> </small>
+                </p>
+              </li>
+
               <%} %>
-            </ul> 
+            </ul>
           </div>
         </div>
+      </li>
 
-        </li>
-
-        <%} %>
+      <%} %>
     </ul>
   </div>
 </section>
