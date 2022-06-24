@@ -12,7 +12,7 @@
   <div class="post-comments">
     <h5>Comments</h5>
     <% if(locals.user) {%>
-    <form action="/comments/create" method="post">
+    <form action="/comments/create" method="post" id="post-comment-form">
       <input
         type="text"
         name="content"

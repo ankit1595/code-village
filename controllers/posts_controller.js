@@ -31,8 +31,8 @@ module.exports.create = async function (req, res) {
         message: "Post Created!",
       });
     }
-    req.flash("success", "Post published!");
 
+    req.flash("success", "Post published!");
     console.log("Added Post: ", post);
     return res.redirect("back");
   } catch (err) {
