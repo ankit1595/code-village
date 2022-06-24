@@ -12,7 +12,12 @@
   <div class="post-comments">
     <h5>Comments</h5>
     <% if(locals.user) {%>
-    <form action="/comments/create" method="post" id="post-comment-form">
+    <!-- let's give an id to the new comment form, we'll also need to make the same changes in home_posts.js where we're adding a post to the page -->
+    <form
+      id="post-<%= post._id %>-comments-form"
+      action="/comments/create"
+      method="post"
+    >
       <input
         type="text"
         name="content"
@@ -25,7 +30,7 @@
     <%}%>
 
     <div class="post-comments-list">
-      <ul class="post-comment-<%= post._id%>">
+      <ul id="post-comments-<%= post._id%>">
         <% for(comment of post.comments) {%> <%- include('_comment') -%> <%} %>
       </ul>
     </div>
