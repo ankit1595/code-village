@@ -34,8 +34,8 @@ module.exports.update = async function (req, res) {
         }
         console.log(req.file);
         user.save();
-        req.flash("success", "Profile updated");
 
+        req.flash("success", "Profile updated");
         return res.redirect("back");
       });
     } catch (err) {
