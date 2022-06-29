@@ -25,8 +25,10 @@ passport.use(
         console.log(profile);
 
         if (user) {
+          //if user found, set this user as req.user
           return done(null, user);
         } else {
+          // if user not found, create the user and set it as req.user
           User.create(
             {
               name: profile.displayName,
