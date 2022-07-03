@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 const ejs = require("ejs");
-const Logger = require("nodemon/lib/utils/log");
+const path = require("path");
 
 let transporter = nodemailer.createTransport({
   service: "gmail",
